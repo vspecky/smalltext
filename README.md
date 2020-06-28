@@ -5,7 +5,7 @@ A project to help me learn bout Rust's File options.
 ## What is Huffman Coding?
 The basic gist of it is as follows.  
 Lets say you have a text file with the string "bbbba". Each character of the file occupies exactly one byte of space (Non-ascii UTF-8 characters occupy more but they still can be divided into single byte units) so the total size of the file is 5 bytes. But we don't really need 8 bytes for encoding a single character since there are only two characters in total in the file. Lets say we encode all the b's as 1 and a's as 0. In that case we can encode our original string as 11110 which, when converted into a byte, would be 00011110, hence we compressed 5 bytes of data down into a single byte.  
-Now the question arises, wouldn't this cause errors since in the actual byte representation? We have 3 leading zeros before the actual string so it would ultimately decompress to 'aaabbbba'. You would be quite right, and this is why we use Huffman Coding.  
+Now the question arises, wouldn't this cause errors in the actual byte representation? We have 3 leading zeros before the actual string so wouldn't it ultimately decompress to 'aaabbbba'? You would be quite right, and this is why we use Huffman Coding.  
 The Huffman Coding algorithm ensures that all characters receive a unique encoding that won't cause sequential intersections with encodings of any other character. Additionally HC prefers to give shorter codes to more frequently appearing characters and longer ones to less frequently appearing characters, ultimately leading to compression. Read more [here](https://en.wikipedia.org/wiki/Huffman_coding)  
 
 ## How does SmallText work?
